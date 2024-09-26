@@ -14,7 +14,7 @@ public class KafkaController {
 
     @GetMapping("/send")
     public String sendMessage(@RequestParam(value = "message") String message) {
-        messageProducerService.produceMessage("test-topic", message);
+        messageProducerService.produceMessage(message);
         return "OK";
     }
 }
