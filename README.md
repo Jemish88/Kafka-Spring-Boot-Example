@@ -16,6 +16,62 @@ This guide will help you set up and run a Spring Boot application with Kafka and
   ```bash
   java -version
 
+## Step 1: Build and Start All Services
+
+Run the following command from the directory containing your docker-compose.yml file.
+```bash
+docker-compose up --build
+```
+
+This command will:
+
+- Build your Spring Boot application image according to your Dockerfile.
+- Start the ZooKeeper and Kafka services as specified in the docker-compose.yml.
+- Start your Spring Boot application and expose it on port 8080.
+
+## Step 2: Check Logs
+
+After running the above command, you can monitor the logs for your application and other services:
+
+```bash
+docker-compose logs -f 
+```
+Look for logs indicating that your Spring Boot application has started successfully. You should see output similar to:
+
+```bash
+Started YourApplication in X seconds
+```
+
+## Step 3: Access Your Application
+Once your application is up and running, you can access it at:
+```bash
+http://localhost:8080/send?message=xyz
+```
+## Common Issues
+**1. Application Not Starting**
+
+If the Spring Boot application doesn't start, check the logs for any exceptions or errors.
+
+**2. Network Issues**
+
+Ensure that your Kafka service is accessible at kafka:9092 from your Spring Boot application container. Verify that the SPRING_KAFKA_BOOTSTRAP_SERVERS environment variable is correctly set to kafka:9092 in your configuration.
+
+**3. Version Compatibility**
+
+Make sure the versions of Kafka and ZooKeeper you're using are compatible with each other and your Spring Boot application.
+
+
+## Stopping the Services
+
+When you're done, you can stop the services with:
+
+```bash
+docker-compose down
+```
+This will stop and remove the containers defined in your docker-compose.yml file.
+
+check `docker-compose.yml` file for further information about the build and setup of kafka in docker.
+
 Introduction
 ---------------
 This is a learning roadmap and task breakdown for building a Kafka project using Spring Boot.
