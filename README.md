@@ -1,9 +1,26 @@
-KafkaConnect: A Learning Roadmap and Project
+Kafka-Spring-Boot-Example : A Learning Roadmap and Project
 ============================================================
+
+
+
+# Spring Boot Application with Kafka and ZooKeeper Using Docker Compose
+
+This guide will help you set up and run a Spring Boot application with Kafka and ZooKeeper using Docker Compose.
+
+
+## Prerequisites
+
+- **Docker**: Ensure that Docker is installed and running on your machine.
+- **Docker Compose**: Docker Compose is required to manage multiple containers, including your Spring Boot application, Kafka, and ZooKeeper.
+- **Java**: Ensure Java is installed (version 8 or higher).
+  ```bash
+  java -version
 
 Introduction
 ---------------
 This is a learning roadmap and task breakdown for building a Kafka project using Spring Boot.
+
+
 
 Topics
 --------
@@ -167,51 +184,52 @@ Project Name: KafkaConnect
 
 
 # Start the ZooKeeper service
-```$ bin/zookeeper-server-start.sh config/zookeeper.properties```
+    $ bin/zookeeper-server-start.sh config/zookeeper.properties
 # Start the Kafka broker service
 Open another terminal session and run:
 
-```$ bin/kafka-server-start.sh config/server.properties```
+    $ bin/kafka-server-start.sh config/server.properties
 
 Once all services have successfully launched, you will have a basic Kafka environment running and ready to use.
 
 **1. List all topics:**
 To see all the Kafka topics available, use:
 
-```./kafka-topics.sh --list --bootstrap-server localhost:9092```
+    ./kafka-topics.sh --list --bootstrap-server localhost:9092
 
 **2. Describe a topic:**
 To check the details of a specific topic (including partition details and offsets):
 
-```./kafka-topics.sh --describe --topic <topic_name> --bootstrap-server localhost:9092```
+    ./kafka-topics.sh --describe --topic <topic_name> --bootstrap-server localhost:9092
 
 **3. List all consumer groups:**
 To list all consumer groups (group IDs):
 
-```./kafka-consumer-groups.sh --list --bootstrap-server localhost:9092```
+    ```./kafka-consumer-groups.sh --list --bootstrap-server localhost:9092
 
 **4. Describe a consumer group:**
 To get details about a specific consumer group (including lag, committed offsets, and partitions):
 
-```./kafka-consumer-groups.sh --describe --group <group_id> --bootstrap-server localhost:9092```
+    ./kafka-consumer-groups.sh --describe --group <group_id> --bootstrap-server localhost:9092
 
 **5. Consume messages from a topic:**
 To read the messages from the beginning of a specific topic:
 
-```./kafka-console-consumer.sh --topic <topic_name> --from-beginning --bootstrap-server localhost:9092```
+    ./kafka-console-consumer.sh --topic <topic_name> --from-beginning --bootstrap-server localhost:9
+
 
 **6. Produce messages to a topic:**
 To send messages to a topic:
 
-```./kafka-console-producer.sh --topic <topic_name> --bootstrap-server localhost:9092```
+    ./kafka-console-producer.sh --topic <topic_name> --bootstrap-server localhost:9092
 
 **7. Check topic offsets:**
 To get the latest offsets for a specific topic (helpful for monitoring lag):
 
-```./kafka-run-class.sh kafka.tools.GetOffsetShell --topic <topic_name> --time -1 --bootstrap-server localhost:9092```
+    /kafka-run-class.sh kafka.tools.GetOffsetShell --topic <topic_name> --time -1 --bootstrap-server localhost:9092
 
 **Command to read all messages from a Kafka topic:**
 
-```kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic_name> --from-beginning```
+    kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic_name> --from-beginning
 
 
